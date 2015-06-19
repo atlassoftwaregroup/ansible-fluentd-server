@@ -1,16 +1,20 @@
 # Include config files in the ./config.d directory
 include {{ fluentd.config_dir }}/*.conf
+<source>
+  type secure_forward
+  shared_key         {{ fluentd_shared_key }}
+  self_hostname      {{ fluentd_hostname }}
+  # cert_auto_generate yes
+  secure no
+  port 2500
+</source>
+
 <match **>
   type copy
   <store>
-    type secure_forward
-    shared_key {{ fluentd_shared_key }}
-    self_hostname {{ fluentd_hostname }}
-    secure no
-    # self_hostname ${hostname}
-    <server>
-      host {{ fluentd_host }}
-      port {{ fluentd_forward_port }}
-    </server>
+    type gelf
+    host 0.0.0.0
+    port 12201
+    flush_interval 5s
   </store>
 </match>
