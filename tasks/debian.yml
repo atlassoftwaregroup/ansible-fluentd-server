@@ -1,0 +1,15 @@
+- name: apt Add td-agent gpg key
+  apt_key:
+    url: http://packages.treasuredata.com/GPG-KEY-td-agent
+    state: present
+- name: apt Add td-agent ubuntu repo
+  apt_repository:
+    repo: "deb http://packages.treasuredata.com/2/ubuntu/precise/ precise contrib"
+    state: present
+- name: Update cache
+  apt:
+    update_cache: yes
+- name: Install td-agent
+  apt:
+    name: td-agent
+    state: present

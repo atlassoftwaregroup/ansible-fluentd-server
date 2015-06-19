@@ -1,0 +1,14 @@
+---
+- include: install.yml
+  tags:
+    - fluentd
+    - fluentd-install
+- include: config.yml
+  tags:
+    - fluentd
+    - fluentd-configure
+- name: add td-agent to group
+  user:
+    name: td-agent
+    groups: "{{ td_agent_groups }}"
+    append: yes

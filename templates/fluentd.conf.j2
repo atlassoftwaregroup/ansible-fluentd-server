@@ -1,0 +1,16 @@
+# Include config files in the ./config.d directory
+include {{ fluentd.config_dir }}/*.conf
+<match **>
+  type copy
+  <store>
+    type secure_forward
+    shared_key {{ fluentd_shared_key }}
+    self_hostname {{ fluentd_hostname }}
+    secure no
+    # self_hostname ${hostname}
+    <server>
+      host {{ fluentd_host }}
+      port {{ fluentd_forward_port }}
+    </server>
+  </store>
+</match>

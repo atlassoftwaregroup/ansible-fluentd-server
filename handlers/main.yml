@@ -1,0 +1,8 @@
+---
+
+- name: restart td-agent
+  service: name=td-agent state=restarted enabled=yes
+
+- name: monitor fluentd
+  monit: name=td-agent state=monitored
+  ignore_errors: yes

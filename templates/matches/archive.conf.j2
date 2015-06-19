@@ -1,0 +1,7 @@
+# http://docs.fluentd.org/articles/out_file
+<match {{ item.pattern | default('**') }}>
+    type file
+    utc
+    #symlink_path
+    path {{ fluentd.log_dir }}/{{ item.options.path | default(item.name) | default('archive') }}
+</match>

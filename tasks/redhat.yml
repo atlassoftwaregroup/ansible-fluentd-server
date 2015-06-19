@@ -1,0 +1,9 @@
+- name: rpm Add td-agent gpg key
+  rpm_key:
+    key: http://packages.treasuredata.com/GPG-KEY-td-agent
+    state: present
+- name: rpm Install td-agent
+  yum:
+    name: "{{ fluentd_yum_repo }}"
+    update_cache: yes
+    state: present

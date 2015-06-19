@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: jnakatsui
+  description: Ansible role to install and configure fluentd/tdagent
+  license: MIT
+  min_ansible_version: 1.7
+  platforms:
+    name: Ubuntu
+    version:
+      - precise
+  categories:
+    - system
+    - cloud:ec2
+    - logging
+
+dependencies: []
