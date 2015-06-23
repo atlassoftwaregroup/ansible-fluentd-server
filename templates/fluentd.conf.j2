@@ -1,12 +1,13 @@
 # Include config files in the ./config.d directory
 include {{ fluentd.config_dir }}/*.conf
 <source>
-  type secure_forward
-  shared_key         {{ fluentd_shared_key }}
-  self_hostname      {{ fluentd_hostname }}
-  # cert_auto_generate yes
-  secure no
-  port 2500
+  type                         secure_forward
+  self_hostname                {{ fluentd_hostname }}
+  shared_key                   {{ fluentd_shared_key }}
+  secure                       no
+  ca_cert_path                 {{ ca_cert_path }}
+  ca_private_key_path          {{ ca_private_key_path }}
+  ca_private_key_passphrase    {{ ca_private_key_passphrase }}
 </source>
 
 <match **>

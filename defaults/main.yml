@@ -86,3 +86,7 @@ fluentd_in_forward_servers: []
 fluentd_hostname: appname.example.com
 
 fluentd_yum_repo: "http://packages.treasuredata.com.s3.amazonaws.com/2/redhat/7/x86_64/td-agent-2.1.5-1.x86_64.rpm"
+
+fluentd_ca_cert_path: "/home/{{ owner }}/secure-forward/ca_cert.pem"
+fluentd_ca_private_key_path: "/home/{{ owner }}/secure-forward/ca_key.pem"
+fluentd_ca_private_key_passphrase: "default"
