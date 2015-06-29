@@ -1,5 +1,5 @@
 # Include config files in the ./config.d directory
-include {{ fluentd.config_dir }}/*.conf
+@include {{ fluentd.config_dir }}/*.conf
 <source>
   type                         secure_forward
   self_hostname                {{ fluentd_hostname }}
