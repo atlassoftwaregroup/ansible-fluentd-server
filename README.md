@@ -78,3 +78,6 @@ a kafka cluster.
 
 It should provision two servers and a client. The client should log to both servers.
 
+LICENSE
+------
+The source code is licensed under GPL v3.
